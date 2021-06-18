@@ -10,12 +10,12 @@ def imshow(img, enlarge = True, color = True):
     if not color:
         plt.imshow(img, cmap='gray');
     else:
-        plt.imshow(img[:,:,::-1]);
-        # plt.imshow(img);
+        # plt.imshow(img[:,:,::-1]);
+        plt.imshow(img);
     plt.show()
 
 street = cv2.imread('Test/test_images/solidWhiteRight.jpg')
-street_gray = cv2.imread('Test/test_images/solidWhiteRight.jpg',0)
+street_gray = cv2.imread('Test/test_images/solidWhiteRight.jpg')
 
 
 # imshow(street)
@@ -24,6 +24,7 @@ street_rgb = cv2.cvtColor(street,cv2.COLOR_BGR2RGB)
 street_gray = cv2.cvtColor(street_rgb,cv2.COLOR_RGB2GRAY)
 
 # imshow(street_gray, False, False)
+
 
 pts = np.array([[
     [100, 550],
@@ -81,7 +82,7 @@ for line in lines:
 
         cv2.line(img_copy,(x1,y1),(x2,y2),(0,255,0),2)
 
-imshow(img_copy)
+imshow(img_copy, False, True)
 
 
 # imshow(dst)
