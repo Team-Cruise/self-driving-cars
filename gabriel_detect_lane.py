@@ -299,7 +299,7 @@ def detect_lines(img, debug=False):
 for index, img in enumerate(images):
     print('Image:', index)
 #     debug = (True if index == 0 else False)
-    debug = True
+    debug = False
     detect_lines(img, debug)
 
 def process_image(image):
@@ -310,16 +310,32 @@ def process_image(image):
     return detect_lines(image)
 
 from moviepy.editor import VideoFileClip
-from IPython.display import HTML
-import time
 
-white_output = './videos/output/white.mp4'
-clip1 = VideoFileClip("./videos/solidWhiteRight.mp4")
-white_clip = clip1.fl_image(process_image) #NOTE: this function expects color images!!
-white_clip.write_videofile(white_output, audio=False)
+#white_output = './videos/output/Output.mp4'
+#clip1 = VideoFileClip("./videos/Short-daytime-test.mp4")
+#white_clip = clip1.fl_image(process_image) #NOTE: this function expects color images!!
+#white_clip.write_videofile(white_output, audio=False)
+
+capture = cv2.VideoCapture("Test/test_videos/solidWhiteRight.mp4")
+window_name="challenge"
+if not capture.isOpened():
+    exit(0)
+    
+while True:
+    ret,img = capture.read()
+    if img is None:
+        break
+
+    img =detect_lines(img, debug=False)q
+    
+    cv2.imshow(window_name,img)
+
+    k = cv2.waitKey(30)
+    if k == ord("q"):
+        break
+    
+capture.release()
+cv2.destroyAllWindows()
+cv2.waitKey(1)
 
 
-yellow_output = './videos/output/yellow.mp4'
-clip2 = VideoFileClip('./videos/solidYellowLeft.mp4')
-yellow_clip = clip2.fl_image(process_image)
-yellow_clip.write_videofile(yellow_output, audio=False)
