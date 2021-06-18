@@ -21,11 +21,11 @@ We detect **lane lines** in images and videos using Python and OpenCV.
 
 ## Authors
 
-- [Fabio]()
-- [Umut]()
-- [Farrukh]()
-- [Gabriel]()
-- [Hedaya]()
-- [Vladimir]()
+- [Fabio Fistarol](https://github.com/fistadev)
+- [Umut Aktaş](https://github.com/aktumut)
+- [Farrukh Bulbulov](https://github.com/fbulbulov)
+- [Gabriel Pasca](https://github.com/Calypso25)
+- [Hedaya Ali](https://github.com/HedayaAli)
+- [Vladimir Gasanov](https://github.com/VladimirGas)
 
 ![Logo](https://github.com/Team-Cruise/self-driving-cars/blob/main/Test/examples/laneLines_thirdPass.jpg)
