@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+videos/GOPR0018.MP4
+videos/output/video)copy.mp4
+videos/video_300.mp4
+videos/video.mp4

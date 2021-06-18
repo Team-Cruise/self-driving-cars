@@ -266,7 +266,7 @@ def save_img(img, name):
 import os
 image_names = [name for name in os.listdir("./images") if '.' in name]
 image_names.sort()
-print(image_names)
+# print(image_names)
 images = [mpimg.imread('./images/{0}'.format(name)) for name in image_names]
 
 def detect_lines(img, debug=False):
