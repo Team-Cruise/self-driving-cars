@@ -10,8 +10,8 @@ def imshow(img, enlarge = True, color = True):
     if not color:
         plt.imshow(img, cmap='gray');
     else:
-        # plt.imshow(img[:,:,::-1]);
-        plt.imshow(img);
+        plt.imshow(img[:,:,::-1]);
+        # plt.imshow(img);
     plt.show()
 
 street = cv2.imread('Test/test_images/solidWhiteRight.jpg')
@@ -64,4 +64,5 @@ lines = cv2.HoughLines(dst,1,np.pi/180,200)
 # plt.imshow(thr, cmap='gray')
 # imshow(canny)
 
-plt.imshow(lines)
+imshow(lines, False, True)
+
