@@ -43,7 +43,15 @@ ret, thr =cv2.threshold(street_copy,127,255,cv2.THRESH_BINARY_INV)
 
 canny = cv2.Canny(street_gray,100,200)
 
-lines = cv2.HoughLines(canny,1,np.pi/180,200)
+
+mask = np.zeros(canny.shape[:2], np.uint8)
+cv2.drawContours(mask, [points], -1, (255, 255, 255), -1, cv2.LINE_AA)
+
+## (3) do bit-op
+dst = cv2.bitwise_and(canny, canny, mask=mask)
+
+
+lines = cv2.HoughLines(dst,1,np.pi/180,200)
 
 
 
