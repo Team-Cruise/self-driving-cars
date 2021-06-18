@@ -10,8 +10,8 @@ def imshow(img, enlarge = True, color = True):
     if not color:
         plt.imshow(img, cmap='gray');
     else:
-        # plt.imshow(img[:,:,::-1]);
-        plt.imshow(img);
+        plt.imshow(img[:,:,::-1]);
+        # plt.imshow(img);
     plt.show()
 
 street = cv2.imread('Test/test_images/solidWhiteRight.jpg')
@@ -43,7 +43,15 @@ ret, thr =cv2.threshold(street_copy,127,255,cv2.THRESH_BINARY_INV)
 
 canny = cv2.Canny(street_gray,100,200)
 
-lines = cv2.HoughLines(canny,1,np.pi/180,200)
+
+mask = np.zeros(canny.shape[:2], np.uint8)
+cv2.drawContours(mask, [points], -1, (255, 255, 255), -1, cv2.LINE_AA)
+
+## (3) do bit-op
+dst = cv2.bitwise_and(canny, canny, mask=mask)
+
+
+lines = cv2.HoughLines(dst,1,np.pi/180,200)
 
 
 
@@ -56,4 +64,5 @@ lines = cv2.HoughLines(canny,1,np.pi/180,200)
 # plt.imshow(thr, cmap='gray')
 # imshow(canny)
 
-plt.imshow(lines)
+imshow(lines, False, True)
+
