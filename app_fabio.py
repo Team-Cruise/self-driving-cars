@@ -39,7 +39,7 @@ color = (255, 0, 255)
 cv2.polylines(street_copy, points, True, color, 4)
 
 
-ret, thr =cv2.threshold(street_gray,127,255,cv2.THRESH_BINARY_INV)
+ret, thr =cv2.threshold(street_copy,127,255,cv2.THRESH_BINARY_INV)
 
 canny = cv2.Canny(street_gray,100,200)
 
